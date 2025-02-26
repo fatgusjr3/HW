@@ -124,7 +124,7 @@
                 # Load Dataset from URL
                 dataset_url = ("https://raw.githubusercontent.com/fatgusjr3/PerceptronHW/refs/heads/main/Precption_Dataset2.csv")
                 dataset = pd.read_csv(open_url(dataset_url))
-                dataset['Label'] = dataset['Label'].replace({'T':1, 'L':-1})
+                dataset['Label'] = dataset['Label'].replace({'T':1, 'L':0})
             
                 # Convert dataset to numpy array
                 dataset_np = dataset.to_numpy()
@@ -139,13 +139,13 @@
             
                 # Activation function
                 def activation_function(z):
-                    return np.where(z >= 0, 1, -1)
+                    return np.where(z >= 0, 1, 0)
                 
                 # Prediction function
                 def predict(X_test, weights, bias):
                     linear_product = np.dot(X_test, weights) + bias
                     y_pred = activation_function(linear_product)
-                    return ["T" if pred == 1 else "L" if pred == -1 else "Unknown" for pred in y_pred]  
+                    return ["T" if pred == 1 else "L" if pred == 0 else "Unknown" for pred in y_pred]  
             
                 # Function to get the values of the dropdowns and save them in a numpy array
                 def get_np_switch_values():
