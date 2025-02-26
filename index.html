@@ -144,7 +144,7 @@
                 def predict(X_test, weights, bias):
                     linear_product = np.dot(X_test, weights) + bias
                     y_pred = activation_function(linear_product)
-                    return ["T" if pred == 1 else "L" if pred == -1 else "Unknown" for pred in y_pred]  
+                    return ["T" if pred == 1 else "L" for pred in y_pred] 
             
                 # Function to get the values of the dropdowns and save them in a numpy array
                 def get_np_switch_values():
