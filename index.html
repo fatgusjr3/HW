@@ -149,28 +149,28 @@
             
                 # Function to get the values of the dropdowns and save them in a numpy array
                 def get_np_switch_values():
-                    s1 = int(pydom["#switch1_on"][0].checked)
-                    s2 = int(pydom["#switch2_on"][0].checked)
-                    s3 = int(pydom["#switch3_on"][0].checked)
-                    s4 = int(pydom["#switch4_on"][0].checked)
-                    s5 = int(pydom["#switch5_on"][0].checked)
-                    s6 = int(pydom["#switch6_on"][0].checked)
-                    s7 = int(pydom["#switch7_on"][0].checked)
-                    s8 = int(pydom["#switch8_on"][0].checked)
-                    s9 = int(pydom["#switch9_on"][0].checked)
-                    s10 = int(pydom["#switch10_on"][0].checked)
-                    s11 = int(pydom["#switch11_on"][0].checked)
-                    s12 = int(pydom["#switch12_on"][0].checked)
-                    s13 = int(pydom["#switch13_on"][0].checked)
-                    s14 = int(pydom["#switch14_on"][0].checked)
-                    s15 = int(pydom["#switch15_on"][0].checked)
-                    s16 = int(pydom["#switch16_on"][0].checked)
-                
-                    switch_values = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16]
-                    np_switches = np.array(switch_values)
-                    np_switches = np.expand_dims(np_switches, axis=0)
-                
-                    return np_switches
+                s1 = int(pydom.querySelector("#switch1_on:checked") is not None)
+                s2 = int(pydom.querySelector("#switch2_on:checked") is not None)
+                s3 = int(pydom.querySelector("#switch3_on:checked") is not None)
+                s4 = int(pydom.querySelector("#switch4_on:checked") is not None)
+                s5 = int(pydom.querySelector("#switch5_on:checked") is not None)
+                s6 = int(pydom.querySelector("#switch6_on:checked") is not None)
+                s7 = int(pydom.querySelector("#switch7_on:checked") is not None)
+                s8 = int(pydom.querySelector("#switch8_on:checked") is not None)
+                s9 = int(pydom.querySelector("#switch9_on:checked") is not None)
+                s10 = int(pydom.querySelector("#switch10_on:checked") is not None)
+                s11 = int(pydom.querySelector("#switch11_on:checked") is not None)
+                s12 = int(pydom.querySelector("#switch12_on:checked") is not None)
+                s13 = int(pydom.querySelector("#switch13_on:checked") is not None)
+                s14 = int(pydom.querySelector("#switch14_on:checked") is not None)
+                s15 = int(pydom.querySelector("#switch15_on:checked") is not None)
+                s16 = int(pydom.querySelector("#switch16_on:checked") is not None)
+            
+                switch_values = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16]
+                np_switches = np.array(switch_values)
+                np_switches = np.expand_dims(np_switches, axis=0)
+            
+                return np_switches
 
                 # Process and predict function
                 def process_and_predict(event):
