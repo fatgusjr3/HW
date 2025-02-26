@@ -115,15 +115,16 @@
                 from pyweb import pydom
             
                 # Manually set weights and bias
-                weights = np.array([0.010150384378451043, 0.016499158227686116, 0.029581908081026245, 0.005601120336112039, -0.016499158227686116, 0.009851843661437777, 0.005601120336112039, 0.0, 
-                            -0.016499158227686116, 0.009851843661437777, 0.005601120336112039, 0.0, -0.016499158227686116, -0.005601120336112039, -0.02905581174358119, -0.017149858514250892])
+                weights = np.array([ 0.01015038,  0.01649916,  0.02958191,  0.00560112, -0.01649916,  0.00985184,
+  0.00560112,  0.0,         -0.01649916,  0.00985184,  0.00560112,  0.0,
+ -0.01649916, -0.00560112, -0.02905581, -0.01714986])
 
                 bias = -0.01
                             
                 # Load Dataset from URL
                 dataset_url = ("https://raw.githubusercontent.com/fatgusjr3/PerceptronHW/refs/heads/main/Precption_Dataset2.csv")
                 dataset = pd.read_csv(open_url(dataset_url))
-                dataset['Label'] = dataset['Label'].replace({'T':1, 'L':-1})
+                dataset['Label'] = dataset['Label'].replace({'T':1, 'L':0})
             
                 # Convert dataset to numpy array
                 dataset_np = dataset.to_numpy()
@@ -138,7 +139,7 @@
             
                 # Activation function
                 def activation_function(z):
-                    return np.where(z >= 0, 1, -1)
+                    return np.where(z >= 0, 1, 0)
                 
                 # Prediction function
                 def predict(X_test, weights, bias):
